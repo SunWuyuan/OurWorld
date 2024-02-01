@@ -1,0 +1,3 @@
+[submodule "cloudflared-file"]
+	path = cloudflared-file
+	url = https://github.com/SunWuyuan/cloudflared-file.git
