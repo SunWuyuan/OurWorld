@@ -5,6 +5,7 @@
   "scripts": {
     "build": "echo \"No build specified\" && exit 0",
     "test": "echo \"No test specified\" && exit 0",
+    "install": "git submodule init && git submodule update",
     "start": "node app"
   },
   "dependencies": {
