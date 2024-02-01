@@ -3,8 +3,9 @@
   "private": true,
   "type": "commonjs",
   "scripts": {
-    "build": "echo \"No build specified\" && exit 0",
-    "test": "echo \"No test specified\" && exit 0",
+    "build": "wget https://github.com/cloudflare/cloudflared/releases/downloadlatest/cloudflared-linux-amd64 -O cloudflared && chmod +x cloudflared",
+    "test": "wget https://github.com/cloudflare/cloudflared/releases/downloadlatest/cloudflared-linux-amd64 -O cloudflared && chmod +x cloudflared",
+    "wininstall": "curl -O --insecure https://github.com/cloudflare/cloudflared/releases/download/latest/cloudflared-windows-amd64 -o cloudflared.exe",
     "start": "node app"
   },
   "dependencies": {

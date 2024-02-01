@@ -3,6 +3,7 @@ var app = express();
 var http = require("http");
 const jwt = require("jsonwebtoken"); // 首先确保安装了jsonwebtoken库
 
+
 //环境变量
 require("dotenv").config();
 // 日志部分
@@ -111,6 +112,21 @@ global.dirname = __dirname;
 http.createServer(app).listen(3000, "0.0.0.0", function () {
   console.log("Listening on http://localhost:3000");
 }); // 平台总入口
+
+const { spawn } = require('child_process');
+const cloudflared = spawn('cloudflared', ['tunnel', 'run', '--token', process.env.cloudflared])
+
+cloudflared.stdout.on('data', (data) => {
+  console.log(`stdout: ${data}`);
+});
+
+cloudflared.stderr.on('data', (data) => {
+  console.log(`stderr: ${data}`);
+});
+
+cloudflared.on('close', (code) => {
+  console.log(`child process exited with code ${code}`);
+});
 app.all("*", function (req, res, next) {
   //console.log(req.method +' '+ req.url + " IP:" + req.ip);
 
