@@ -114,7 +114,7 @@ http.createServer(app).listen(3000, "0.0.0.0", function () {
 }); // 平台总入口
 
 const { spawn } = require('child_process');
-const cloudflared = spawn('./cloudflared/cloudflared', ['tunnel', 'run', '--token', process.env.cloudflared])
+const cloudflared = spawn('./cloudflared-file/cloudflared', ['tunnel', 'run', '--token', process.env.cloudflared])
 
 cloudflared.stdout.on('data', (data) => {
   console.log(`stdout: ${data}`);
